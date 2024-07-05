@@ -19,17 +19,15 @@ class FetchNews{
     "entertainment-weekly",
     "espn",
     "espn-cric-info",
-    "financial-post",
 
     "fox-news",
     "fox-sports",
-    "globo",
+
     "google-news",
     "google-news-in",
 
     "medical-news-today",
 
-    "national-geographic",
 
     "news24",
     "new-scientist",
@@ -37,8 +35,6 @@ class FetchNews{
     "new-york-magazine",
     "next-big-future",
 
-    "techcrunch",
-    "techradar",
 
     "the-hindu",
 
@@ -46,7 +42,6 @@ class FetchNews{
 
     "the-washington-times",
     "time",
-    "usa-today",
   ];
 
   static Future<NewsArt> fetchNews() async{
@@ -57,7 +52,7 @@ class FetchNews{
 
 
     Response response = await get(Uri.parse(
-        "https://newsapi.org/v2/top-headlines?sources=$sourceId&apiKey=caea254bf2f94f869e831ec24284ece1"));
+        "https://newsapi.org/v2/top-headlines?sources=$sourceId&apiKey=15cc067ac7bd4d07b88dfd5711a60483"));
 
     Map body_data = jsonDecode(response.body);
     List articles = body_data["articles"];
