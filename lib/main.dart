@@ -1,3 +1,5 @@
+// Copyright (c) 2024 PureAman
+
 import 'package:daliynews/view/home.dart';
 import 'package:daliynews/view/splash.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +16,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   bool showingSplash = true;
-  LoadHome(){
-    Future.delayed(Duration(seconds: 3),(){
+  LoadHome() {
+    Future.delayed(const Duration(seconds: 3), () {
       setState(() {
         showingSplash = false;
       });
@@ -37,11 +38,10 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Daily News',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: showingSplash ? SplashScreen() : HomeScreen(),
+      home: showingSplash ? const SplashScreen() : const HomeScreen(),
     );
   }
 }

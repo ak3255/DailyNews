@@ -1,3 +1,5 @@
+// Copyright (c) 2024 PureAman
+
 import 'package:daliynews/controller/fetchNews.dart';
 import 'package:daliynews/model/newsArt.dart';
 import 'package:daliynews/view/widgets/NewsContainer.dart';
@@ -11,12 +13,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   bool isLoading = true;
 
   late NewsArt newsArt;
 
-  GetNews() async{
+  GetNews() async {
     newsArt = await FetchNews.fetchNews();
     setState(() {
       isLoading = false;
@@ -34,21 +35,25 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: PageView.builder(
-          controller: PageController(initialPage: 0), //isko sikhna
-          scrollDirection: Axis.vertical, //isko sikhna
-          onPageChanged: (value){
+          controller: PageController(initialPage: 0),
+          scrollDirection: Axis.vertical,
+          onPageChanged: (value) {
             setState(() {
               isLoading = true;
             });
             GetNews();
           },
           itemBuilder: (context, index) {
-            return isLoading ? Center(child: CircularProgressIndicator(),) : Newscontainer(
-                imgUrl: newsArt.imgUrl ,
-                newsHead: newsArt.newsHead,
-                newsDes: newsArt.newsDes,
-                newsCnt: newsArt.newsCnt,
-                newsUrl: newsArt.newsUrl);
+            return isLoading
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Newscontainer(
+                    imgUrl: newsArt.imgUrl,
+                    newsHead: newsArt.newsHead,
+                    newsDes: newsArt.newsDes,
+                    newsCnt: newsArt.newsCnt,
+                    newsUrl: newsArt.newsUrl);
           }),
     );
   }

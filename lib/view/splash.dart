@@ -1,3 +1,5 @@
+// Copyright (c) 2024 PureAman
+
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,16 +11,14 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/logo.png"),
-              SizedBox(
-                height: 20,
-              ),
-            ],
-          )),
-
-
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("assets/images/logo.png"),
+          const SizedBox(
+            height: 20,
+          ),
+        ],
+      )),
     );
   }
 }

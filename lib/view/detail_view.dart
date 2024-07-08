@@ -1,5 +1,6 @@
-import 'dart:async';
+// Copyright (c) 2024 PureAman
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -13,7 +14,6 @@ class DetailViewScreen extends StatefulWidget {
 }
 
 class _DetailViewScreenState extends State<DetailViewScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -27,16 +27,16 @@ class _DetailViewScreenState extends State<DetailViewScreen> {
   }
 
   final Completer<WebViewController> controller =
-  Completer<WebViewController>();
+      Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Daily News")),
+      appBar: AppBar(title: const Text("Daily News")),
       body: WebView(
         initialUrl: widget.newsUrl,
         javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController){
+        onWebViewCreated: (WebViewController webViewController) {
           setState(() {
             controller.complete(webViewController);
           });
